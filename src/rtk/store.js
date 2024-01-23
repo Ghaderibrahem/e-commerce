@@ -1,14 +1,16 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { useDispatch, useSelector } from "react-redux";
+import products from "./products";
 
 const store = configureStore({
-  reducer: combineReducers({}),
+  reducer: combineReducers({products}),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false
+    }),
 });
 
 setupListeners(store.dispatch);
 
 export { store };
-
-export const useAppDispatch = () => useDispatch();
-export const useAppSelector = useSelector;
+ 

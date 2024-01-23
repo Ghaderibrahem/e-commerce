@@ -35,7 +35,7 @@ function Header() {
             Products
           </Link>
           <Link
-            to={{ pathname: "products", search: "?login=true" }}
+            to={{ pathname: "cart", search: "?login=true" }}
             style={{
               marginInlineStart: "15px",
               textDecoration: "none",
