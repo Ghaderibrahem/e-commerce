@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import { Container, Row, Col } from "react-bootstrap";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import Products from "./pages/Products";
+import Header from "./components/Header";
+import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container
+      fluid
+      style={{
+        height: "100%",
+      }}
+    >
+      {/* <Row>
+        <Col> */}
+      <Header />
+      <Routes>
+        <Route path="/" element={<Navigate replace to="products" />} />
+        <Route path={`/products`} search element={<Products />} />
+      </Routes>
+      {/* </Col>
+      </Row> */}
+    </Container>
   );
 }
 

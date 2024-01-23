@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -26,13 +26,24 @@
 
 .App-link {
   color: #61dafb;
+} */
+
+body,
+html,
+#root {
+  height: 100% !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #F3F3F3;
+  /* font-family: "Poppins" !important; */
 }
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
-}
+} */
