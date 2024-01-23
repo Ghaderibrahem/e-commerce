@@ -1,13 +1,12 @@
-
 @font-face {
   font-family: 'PlusJakartaSans';
   src: url('./assets/fonts/PlusJakartaSans-Regular.ttf');
-   font-weight: normal;
+  font-weight: normal;
   font-style: normal;
 }
 
 body {
-   font-family: 'PlusJakartaSans', sans-serif !important;
+  font-family: 'PlusJakartaSans', sans-serif !important;
 }
 
 body,
@@ -18,6 +17,36 @@ html,
   overflow-y: auto;
   background-color: #F3F3F3;
   /* font-family: "Poppins" !important; */
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  -webkit-appearance: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: 1px solid #eee;
+  margin: 5px 0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 3px;
+  border: 2px solid rgba(68, 93, 119, 0.15);
+  height: 40px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #542686;
+}
+
+.primar-text-color {
+  color: #542686;
 }
 
 /* @keyframes App-logo-spin {

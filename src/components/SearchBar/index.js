@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import "./index.css";
 function SearchBar() {
   return (
@@ -11,14 +10,7 @@ function SearchBar() {
         <div className="col-12 col-md-9">
           <select
             aria-label="Default select example"
-            style={{
-              height: "50px",
-              width: "50%",
-              backgroundColor: "#FAFBFC",
-              borderRadius: "6px",
-              paddingInlineStart: "10px",
-              border: "1px solid #E9E7E7",
-            }}
+            className="category-filter"
           >
             <option>all</option>
             <option value="1">One</option>
@@ -30,7 +22,7 @@ function SearchBar() {
           </select>
         </div>
         <div className="d-flex justify-content-end col-12 col-md-3">
-          <button className=" rounded submit-btn" size="lg" type="submit">
+          <button className="rounded submit-btn" size="lg" type="submit">
             Search Products
           </button>
         </div>

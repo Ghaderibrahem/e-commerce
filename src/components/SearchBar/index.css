@@ -7,3 +7,12 @@
     background-color: #542686 !important;
     color: #FFFFFF;
 }
+
+.category-filter {
+    height: 50px;
+    width: 50%;
+    background-color: #FAFBFC;
+    border-radius: 6px;
+    padding-inline-start: 10px;
+    border: 1px solid #E9E7E7;
+}
