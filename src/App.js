@@ -7,21 +7,12 @@ import Header from "./components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
-    <Container
-      fluid
-      style={{
-        height: "100%",
-      }}
-    >
-      {/* <Row>
-        <Col> */}
+    <Container fluid className="h-100 p-0">
       <Header />
       <Routes>
         <Route path="/" element={<Navigate replace to="products" />} />
         <Route path={`/products`} search element={<Products />} />
       </Routes>
-      {/* </Col>
-      </Row> */}
     </Container>
   );
 }

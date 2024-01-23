@@ -1,53 +1,32 @@
 import React from "react";
-import { Col, Container, Image, Nav, Navbar, Row } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { searchBarRoot } from "./styles";
+import "./index.css";
 const silkhausLogo = "./images/silkhaus-logo.png";
 
 function Header() {
   return (
-    // <Navbar className="bg-body-tertiary justify-content-between">
-    <Container fluid className="bg-white">
-      <Row
-      // style={{
-      //   display: "flex",
-      //   justifyContent: "space-between",
-      //   alignItems: "center",
-      //   padding: "20px 150px 20px 60px",
-      //   marginBottom: "40px",
-      //   ...searchBarRoot,
-      // }}
-      >
-        <Col xs={12} md={6} lg={6}>
-          <Image
-            src={silkhausLogo}
-            rounded
-            //   style={{ maxHeight: "77px" }}
-          />
+    <Container className="bg-white header-root" fluid>
+      <Row>
+        <Col xs={12} md={8} lg={8}>
+          <Image src={silkhausLogo} rounded className="ms-5" />
         </Col>
-        <Col xs={12} md={6} lg={6}>
+        <Col xs={12} md={4} lg={4}>
           <Link
             to={{ pathname: "products", search: "?sort=asc&page=1&limit=10" }}
-            style={{
-              textDecoration: "none",
-            }}
+            className="text-decoration-none"
           >
             Products
           </Link>
           <Link
             to={{ pathname: "products", search: "?login=true" }}
-            style={{
-              marginInlineStart: "15px",
-              textDecoration: "none",
-            }}
+            className="text-decoration-none ms-3"
           >
             Cart
           </Link>
         </Col>
       </Row>
     </Container>
-
-    // </Navbar>
   );
 }
 

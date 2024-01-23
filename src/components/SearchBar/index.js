@@ -1,26 +1,23 @@
 import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-
+import "./index.css";
 function SearchBar() {
   return (
-    <Container
-      style={{
-        backgroundColor: "#FAFBFC",
-        padding: "10px 30px",
-        boxShadow: "0px 5px 2px 1px rgb(22 21 21 / 22%)",
-        borderRadius: "6px",
-      }}
-    >
+    <Container className="mt-5 px-4 py-4 rounded-2 searchbar-root">
       <Row>
         <Col>
           <p>Product Category</p>
         </Col>
+      </Row>
+      <Row>
         <Col
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
+          xs={12}
+          md={9}
+          //   style={{
+          //     display: "flex",
+          //     justifyContent: "space-between",
+          //     alignItems: "center",
+          //   }}
         >
           <Form.Select
             aria-label="Default select example"
@@ -41,17 +38,9 @@ function SearchBar() {
             <option value="5">five</option>
             <option value="6">six</option>
           </Form.Select>
-
-          <Button
-            style={{
-              backgroundColor: "#542686",
-              padding: "15px",
-              color: "#FFFFFF",
-              borderRadius: "6px",
-            }}
-            size="lg"
-            type="submit"
-          >
+        </Col>
+        <Col xs={12} md={3} className="d-flex justify-content-end">
+          <Button className=" rounded submit-btn" size="lg" type="submit">
             Search Products
           </Button>
         </Col>
