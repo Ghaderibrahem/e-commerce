@@ -5,6 +5,7 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Products from "./pages/Products";
 import Header from "./components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Cart from "./pages/Cart";
 function App() {
   return (
     <Container fluid className="h-100 p-0">
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate replace to="products" />} />
         <Route path={`/products`} search element={<Products />} />
+        <Route path={`/cart`} search element={<Cart />} />
       </Routes>
     </Container>
   );

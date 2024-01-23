@@ -18,10 +18,7 @@ function Header() {
           >
             Products
           </Link>
-          <Link
-            to={{ pathname: "products", search: "?login=true" }}
-            className="text-decoration-none ms-3"
-          >
+          <Link className="text-decoration-none ms-3" to={{ pathname: "cart" }}>
             Cart
           </Link>
         </Col>
