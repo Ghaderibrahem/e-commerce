@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../../components/SearchBar";
 import { Container } from "react-bootstrap";
-import CardComponent from "../../components/card";
 import {getProducts} from '../../rtk/products/thunks'
+import CardComponent from "../../components/card";
+import Carousel from "../../components/carousel";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -25,7 +26,7 @@ function Cart() {
       }}
     >
       <CardComponent />
-    </Container>
+     </Container>
   );
 }
 
