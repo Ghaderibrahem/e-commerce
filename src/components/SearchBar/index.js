@@ -3,23 +3,13 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import "./index.css";
 function SearchBar() {
   return (
-    <Container className="mt-5 px-4 py-4 rounded-2 searchbar-root">
-      <Row>
-        <Col>
-          <p>Product Category</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col
-          xs={12}
-          md={9}
-          //   style={{
-          //     display: "flex",
-          //     justifyContent: "space-between",
-          //     alignItems: "center",
-          //   }}
-        >
-          <Form.Select
+    <div className="mt-5 px-4 py-4 rounded-2 searchbar-root">
+      <div>
+        <p>Product Category</p>
+      </div>
+      <div className="row">
+        <div className="col-12 col-md-9">
+          <select
             aria-label="Default select example"
             style={{
               height: "50px",
@@ -37,15 +27,15 @@ function SearchBar() {
             <option value="4">four</option>
             <option value="5">five</option>
             <option value="6">six</option>
-          </Form.Select>
-        </Col>
-        <Col xs={12} md={3} className="d-flex justify-content-end">
-          <Button className=" rounded submit-btn" size="lg" type="submit">
+          </select>
+        </div>
+        <div className="d-flex justify-content-end col-12 col-md-3">
+          <button className=" rounded submit-btn" size="lg" type="submit">
             Search Products
-          </Button>
-        </Col>
-      </Row>
-    </Container>
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 

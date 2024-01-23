@@ -6,6 +6,7 @@ import Products from "./pages/Products";
 import Header from "./components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Cart from "./pages/Cart";
+import Footer from "./components/Footer";
 function App() {
   return (
     <Container fluid className="h-100 p-0">
@@ -15,6 +16,7 @@ function App() {
         <Route path={`/products`} search element={<Products />} />
         <Route path={`/cart`} search element={<Cart />} />
       </Routes>
+      <Footer />
     </Container>
   );
 }
