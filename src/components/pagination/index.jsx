@@ -1,4 +1,8 @@
 import "./index.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
 const Pagination = ({
   page = 1,
   rowsPerPage = 10,
@@ -11,12 +15,12 @@ const Pagination = ({
     btnArray.push(i);
   }
   return (
-    <div className="d-flex flex-row justify-content-between ">
-      <div className="d-flex align-items-center col-12 col-md-2 col-lg-2">
-        <h6 className="m-2 rows-per-page">Rows per page:</h6>
+    <div className="responive-pagination col-12">
+      <div className="d-flex justify-content-center align-items-center col-sm-12 col-md-2 m-2">
+        <h6 className="w-20 m-0 rows-per-page">Rows per page:</h6>
         <select
           aria-label="Default select example"
-          className="bg-transparent border-0 ronded"
+          className="bg-transparent border-0 rounded-3 w-30"
           onChange={(e) => handleRowsPerPage(+e.target.value)}
           value={rowsPerPage}
         >
@@ -27,13 +31,14 @@ const Pagination = ({
           <option value="100">100</option>
         </select>
       </div>
-      <div className="col-12 col-md-10 col-lg-10 d-flex flex-row justify-content-between">
+      <div className="col-sm-12 col-md-10 d-flex flex-row justify-content-between">
         <button
           className="d-flex justify-content-center align-items-center border-0 bg-body p-3  m-2 rounded-3"
           style={{ width: "7rem", height: "3rem" }}
           onClick={() => handlePageChange(page - 1)}
           disabled={page == 1}
         >
+          <FontAwesomeIcon icon={faArrowLeft} style={{ marginRight: "10px" }} />
           Previous
         </button>
         <div className="d-flex justify-content-center">
@@ -105,6 +110,7 @@ const Pagination = ({
           disabled={page == numOfPages}
         >
           Next
+          <FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: "10px" }} />
         </button>
       </div>
     </div>

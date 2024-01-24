@@ -39,3 +39,44 @@
 .count {
     margin: 0 0 0 12px !important;
 }
+
+.responsive-card {
+    display: flex !important;
+    flex-direction: row !important;
+    border-radius: 16px !important;
+    /* width: 525px !important; */
+    height: 210px !important;
+}
+
+.responsive-carousel{
+    width: 175px!important;
+    height: 210px!important;
+}
+ 
+@media (max-width: 635px) {
+    .responsive-card {
+        display: flex !important;
+        flex-direction: column !important;
+        border-radius: 16px !important; 
+        /* width: 335px !important; */
+        height: 350px !important;
+    }
+    .responsive-carousel{
+        width: 100%!important;
+        height: 180px!important;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .responsive-card {
+        display: flex !important;
+        flex-direction: column !important;
+        border-radius: 16px !important; 
+        /* width: 335px !important; */
+        height: 350px !important;
+    }
+    .responsive-carousel{
+        width: 100%!important;
+        height: 180px!important;
+    }
+  }
