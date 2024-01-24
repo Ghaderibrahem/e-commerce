@@ -21,9 +21,8 @@ function Products() {
   const ProductsSection = useMemo(() => {
     return Array.isArray(products) && products.length ? (
       products.map((item, index) => (
-        <div key={index} className="col-12 col-md-6">
-          {console.log(index, "index")}
-          <CardComponent />
+        <div key={index} className="col-12 col-md-6 padding-right">
+          <CardComponent item={item} />
         </div>
       ))
     ) : (

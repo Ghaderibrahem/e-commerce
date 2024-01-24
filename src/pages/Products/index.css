@@ -19,3 +19,7 @@
     row-gap: 19px;
     overflow-x: hidden;
 }
+
+.padding-right {
+    padding-right: 7rem !important;
+}

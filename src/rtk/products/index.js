@@ -3,12 +3,23 @@ import { getProducts } from "./thunks";
 
 const initialState = {
   products: [],
+  addedToCart: [],
 };
 
 export const slice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    addToCart: (state, action) => {
+      const response = action?.payload;
+      state.addedToCart = [
+        ...state.addedToCart?.filter(
+          (row) => row?.sale?.id !== response?.sale?.id
+        ),
+        response,
+      ];
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getProducts.fulfilled, (state, action) => {
       const response = action.payload;
@@ -16,6 +27,6 @@ export const slice = createSlice({
     });
   },
 });
-export const {} = slice.actions;
+export const { addToCart } = slice.actions;
 
 export default slice.reducer;

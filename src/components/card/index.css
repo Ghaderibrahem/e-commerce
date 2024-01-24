@@ -1,0 +1,41 @@
+.title {
+    margin-bottom: 18px !important;
+    font-size: 1rem;
+}
+
+.gray-text {
+    font-size: 0.7rem;
+    color: #7A7A7A;
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    background-color: #B6B6B6;
+    margin: 7px 0;
+}
+
+.addToCart-btn {
+    background-color: #542686 !important;
+    color: #FFFFFF;
+    border-radius: 6px;
+    width: 6rem;
+    padding: 8px;
+}
+
+.btn-text {
+    font-size: 0.7rem;
+}
+
+.toggle-btn {
+    margin-left: 12px;
+    background-color: #ffffff;
+    border: #ffffff;
+    width: 41px;
+    font-size: 29px;
+    padding: 0px;
+}
+
+.count {
+    margin: 0 0 0 12px !important;
+}
