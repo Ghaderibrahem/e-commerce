@@ -38,18 +38,16 @@ function CardComponent({ item }) {
     );
   };
   return (
-    <div
-      className="card d-flex flex-row"
-      style={{ borderRadius: "1rem", height: "10rem" }}
-      key={item?.id}
-    >
-      <Carousel
-        width="10rem"
-        height="10rem"
-        images={item?.images?.length ? item.images : []}
-        id={item.id}
-      />
-      <div className="card-body">
+    <div className="card responsive-card" key={item?.id}>
+      <div className="responsive-carousel">
+        <Carousel
+          width="100%"
+          height="100%"
+          images={item?.images?.length ? item.images : []}
+          id={item.id}
+        />
+      </div>
+      <div className="card-body d-flex flex-column justify-content-around">
         <h5
           className="card-title title font-bold"
           data-bs-toggle="tooltip"

@@ -1,3 +1,5 @@
+import "./index.css";
+
 const Carousel = ({ width = "100%", height, images = [], id }) => {
   const checkIfJson = (value) => {
     if (value.startsWith("[")) {
@@ -34,11 +36,9 @@ const Carousel = ({ width = "100%", height, images = [], id }) => {
         ))}
       </div>
       <div
-        className="carousel-inner"
+        className="carousel-inner carousel-inner-responsive"
         style={{
           height,
-          borderTopLeftRadius: "1rem",
-          borderBottomLeftRadius: "1rem",
         }}
       >
         {images?.map((element, index) => (

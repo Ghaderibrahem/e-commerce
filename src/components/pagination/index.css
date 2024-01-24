@@ -1,3 +1,15 @@
 .rows-per-page {
     font-size: 0.75rem;
 }
+
+.responive-pagination{
+display: flex;
+flex-direction: row;
+}
+
+@media (max-width: 770px) {
+    .responive-pagination{
+    display: flex;
+    flex-direction: column;
+    }
+  }
