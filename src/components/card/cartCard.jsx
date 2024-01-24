@@ -1,14 +1,15 @@
 import Carousel from "../carousel";
 import "./index.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../rtk/products";
+import { addToCart, deleteFromCart } from "../../rtk/products";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-function CardComponent({ item }) {
+function CartCard({ item }) {
+  const { sale } = item;
   const dispatch = useDispatch();
   const { addedToCart } = useSelector((state) => state.products);
-  const [count, setCount] = useState(null);
+  const [count, setCount] = useState(item?.count ?? null);
   const handleCheckIfAdded = (obj, type = "add") => {
     if (!obj) return 0;
     let addedSales = addedToCart?.filter((row) => row?.sale?.id === obj?.id);
@@ -41,28 +42,37 @@ function CardComponent({ item }) {
     <div
       className="card d-flex flex-row"
       style={{ borderRadius: "1rem", height: "10rem" }}
-      key={item?.id}
+      key={sale?.id}
     >
       <Carousel
         width="10rem"
         height="10rem"
-        images={item?.images?.length ? item.images : []}
-        id={item.id}
+        images={sale?.images?.length ? sale?.images : []}
+        id={sale?.id}
       />
       <div className="card-body">
-        <h5
-          className="card-title title font-bold"
-          data-bs-toggle="tooltip"
-          data-bs-placement="right"
-          title={item?.title ?? ""}
-        >
-          {item?.title ? item?.title?.slice(0, 15) + "..." : ""}
-        </h5>
+        <div className="d-flex justify-content-between position-relative">
+          <h5
+            className="card-title title font-bold"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            title={sale?.title ?? ""}
+          >
+            {sale?.title ? sale?.title?.slice(0, 15) + "..." : ""}
+          </h5>
+          <button
+            type="button"
+            className="btn-close bg-danger rounded-5 p-2 position-absolute delete-btn"
+            aria-label="Close"
+            onClick={() => dispatch(deleteFromCart({ id: sale?.id }))}
+          ></button>
+        </div>
+
         <div className="d-flex flex-row justify-content-between">
           <div className="d-flex flex-column">
             <h6 className="card-title gray-text">Category</h6>
             <h6 className="card-title gray-text">
-              {item?.category?.name ?? ""}
+              {sale?.category?.name ?? ""}
             </h6>
           </div>
           <div className="d-flex flex-column">
@@ -71,24 +81,29 @@ function CardComponent({ item }) {
               className="card-title gray-text"
               data-bs-toggle="tooltip"
               data-bs-placement="right"
-              title={item?.description ?? ""}
+              title={sale?.description ?? ""}
             >
-              {item?.description ? item?.description?.slice(0, 10) + "..." : ""}
+              {sale?.description ? sale?.description?.slice(0, 10) + "..." : ""}
             </h6>
           </div>
           <div className="d-flex flex-column">
             <h6 className="card-title gray-text">Price</h6>
-            <h6 className="card-title gray-text">{item?.price ?? ""}</h6>
+            <h6 className="card-title gray-text">{sale?.price ?? ""}</h6>
           </div>
         </div>
         <div className="divider"></div>
-        <div className="d-flex justify-content-end">
+        <div className="d-flex justify-content-between align-items-center">
+          <div>
+            <h6 className="m-0 text-success">{`Total Price: ${
+              sale?.price * count
+            }`}</h6>
+          </div>
           {count ? (
             <div className="d-flex align-items-center">
               <button
                 className="btn-sm toggle-btn"
                 onClick={() => {
-                  handleRemoveFromCart(item);
+                  handleRemoveFromCart(sale);
                 }}
               >
                 -
@@ -97,7 +112,7 @@ function CardComponent({ item }) {
               <button
                 className="btn-sm toggle-btn"
                 onClick={() => {
-                  handleAddToCart(item);
+                  handleAddToCart(sale);
                 }}
               >
                 +
@@ -114,7 +129,7 @@ function CardComponent({ item }) {
                   showConfirmButton: false,
                   timer: 1500,
                 });
-                handleAddToCart(item);
+                handleAddToCart(sale);
               }}
             >
               <h6 className="m-0 btn-text">Add to cart</h6>
@@ -126,4 +141,4 @@ function CardComponent({ item }) {
   );
 }
 
-export default CardComponent;
+export default CartCard;

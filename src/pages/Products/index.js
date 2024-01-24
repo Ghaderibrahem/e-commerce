@@ -127,7 +127,7 @@ function Products() {
             page: 1,
           });
         }}
-        value={queryParams.get("filter")}
+        value={queryParams.get("filter") ?? ""}
       />
       <div className="row mt-5">
         <div className="col-12 col-md-6">

@@ -1,0 +1,15 @@
+.cart-root {
+    min-height: 687px;
+    overflow-x: hidden;
+    width: 100%;
+    padding: 20px;
+}
+
+.buy-btn {
+    border-radius: 6px;
+    background-color: #542686 !important;
+    color: #FFFFFF;
+    width: 89px;
+    border: none;
+    padding: 11px;
+}

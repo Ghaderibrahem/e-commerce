@@ -12,12 +12,20 @@ export const slice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const response = action?.payload;
-      state.addedToCart = [
-        ...state.addedToCart?.filter(
-          (row) => row?.sale?.id !== response?.sale?.id
-        ),
-        response,
-      ];
+      state.addedToCart = response
+        ? [
+            ...state.addedToCart?.filter(
+              (row) => row?.sale?.id !== response?.sale?.id
+            ),
+            response,
+          ]
+        : [];
+    },
+    deleteFromCart: (state, action) => {
+      const response = action?.payload;
+      state.addedToCart = state.addedToCart.filter(
+        (row) => row?.sale?.id !== response?.id
+      );
     },
   },
   extraReducers: (builder) => {
@@ -27,6 +35,6 @@ export const slice = createSlice({
     });
   },
 });
-export const { addToCart } = slice.actions;
+export const { addToCart, deleteFromCart } = slice.actions;
 
 export default slice.reducer;

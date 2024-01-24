@@ -2,3 +2,19 @@
     padding: 20px 150px 20px 60px;
     margin-bottom: "40px",
 }
+
+.active-link {
+    color: #542686;
+    font-weight: bold;
+}
+
+.unactive-link {
+    color: #000000;
+}
+
+.links-divider {
+    width: 1px;
+    background-color: #000000;
+    height: 32px;
+    margin-left: 18px;
+}

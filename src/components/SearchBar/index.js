@@ -24,7 +24,7 @@ function SearchBar({ items = [], handleChange, value }) {
                 </option>
               ))
             ) : (
-              <option value={null}>No items</option>
+              <option value={""}>No items</option>
             )}
           </select>
         </div>

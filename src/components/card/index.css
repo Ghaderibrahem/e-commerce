@@ -37,5 +37,10 @@
 }
 
 .count {
-    margin: 0 0 0 12px !important;
+    margin: 5px 0 0 12px !important;
+}
+
+.delete-btn {
+    right: -14px;
+    top: -11px;
 }
