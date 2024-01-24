@@ -39,18 +39,17 @@ function CartCard({ item }) {
     );
   };
   return (
-    <div
-      className="card d-flex flex-row"
-      style={{ borderRadius: "1rem", height: "10rem" }}
-      key={sale?.id}
-    >
-      <Carousel
-        width="10rem"
-        height="10rem"
-        images={sale?.images?.length ? sale?.images : []}
-        id={sale?.id}
-      />
-      <div className="card-body">
+    <div className="card responsive-card" key={sale?.id}>
+      <div className="responsive-carousel">
+        <Carousel
+          width="100%"
+          height="100%"
+          images={sale?.images?.length ? sale?.images : []}
+          id={sale?.id}
+        />
+      </div>
+
+      <div className="card-body d-flex flex-column justify-content-around">
         <div className="d-flex justify-content-between position-relative">
           <h5
             className="card-title title font-bold"
