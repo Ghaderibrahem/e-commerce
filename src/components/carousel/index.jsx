@@ -1,49 +1,36 @@
-const Carousel = ({ width = "100%", height }) => {
+const Carousel = ({ width = "100%", height, images = [], id }) => {
+  const checkIfJson = (value) => {
+    if (value.startsWith("[")) {
+      console.log(JSON.parse(value)[0], "JSON.parse(value)[0]");
+      return JSON.parse(value)[0] ?? "";
+    }
+    return value;
+  };
   return (
     <div
-      id="carouselExampleIndicators"
+      id={`carouselExampleIndicators${id}`}
       className="carousel slide"
       style={{ width, height }}
+      key={id}
     >
       <div className="carousel-indicators">
-        <button
-          type="button"
-          style={{
-            width: "1rem",
-            height: "1rem",
-            borderRadius: "1rem",
-            border: "0px",
-          }}
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="0"
-          className="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          style={{
-            width: "1rem",
-            height: "1rem",
-            borderRadius: "1rem",
-            border: "0px",
-          }}
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          style={{
-            width: "1rem",
-            height: "1rem",
-            borderRadius: "1rem",
-            border: "0px",
-          }}
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
+        {images?.map((element, index) => (
+          <button
+            key={index}
+            type="button"
+            style={{
+              width: "1rem",
+              height: "1rem",
+              borderRadius: "1rem",
+              border: "0px",
+            }}
+            data-bs-target={`#carouselExampleIndicators${id}`}
+            data-bs-slide-to={index.toString()}
+            className={index === 0 ? "active" : ""}
+            aria-current="true"
+            aria-label={`Slide ${index + 1}`}
+          ></button>
+        ))}
       </div>
       <div
         className="carousel-inner"
@@ -53,27 +40,19 @@ const Carousel = ({ width = "100%", height }) => {
           borderBottomLeftRadius: "1rem",
         }}
       >
-        <div className="carousel-item active h-100">
-          <img
-            src="https://i.imgur.com/eGOUveI.jpeg"
-            className="d-block w-100 h-100"
-            alt="https://i.imgur.com/eGOUveI.jpeg"
-          />
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://i.imgur.com/eGOUveI.jpeg"
-            className="d-block w-100"
-            alt="https://i.imgur.com/eGOUveI.jpeg"
-          />
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://i.imgur.com/eGOUveI.jpeg"
-            className="d-block w-100"
-            alt="https://i.imgur.com/eGOUveI.jpeg"
-          />
-        </div>
+        {images?.map((element, index) => (
+          <div
+            className={
+              index === 0 ? "carousel-item active h-100" : "carousel-item h-100"
+            }
+          >
+            <img
+              src={checkIfJson(element)}
+              className="d-block w-100 h-100"
+              alt={checkIfJson(element)}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

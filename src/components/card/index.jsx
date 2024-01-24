@@ -3,6 +3,8 @@ import "./index.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../rtk/products";
 import { useState } from "react";
+import Swal from "sweetalert2";
+
 function CardComponent({ item }) {
   const dispatch = useDispatch();
   const { addedToCart } = useSelector((state) => state.products);
@@ -41,8 +43,14 @@ function CardComponent({ item }) {
     <div
       className="card d-flex flex-row"
       style={{ borderRadius: "1rem", height: "10rem" }}
+      key={item?.id}
     >
-      <Carousel width="11rem" height="10rem" />
+      <Carousel
+        width="11rem"
+        height="10rem"
+        images={item?.images?.length ? item.images : []}
+        id={item.id}
+      />
       <div className="card-body">
         <h5 className="card-title title font-bold">Product1</h5>
         <div className="d-flex flex-row justify-content-between">
@@ -94,20 +102,19 @@ function CardComponent({ item }) {
             <button
               className="btn-sm addToCart-btn"
               onClick={() => {
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Thank you for your interest in our product",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
                 handleAddToCart(item);
               }}
             >
               <h6 className="m-0 btn-text">Add to cart</h6>
             </button>
           )}
-          {/* <button
-            className="btn-sm addToCart-btn"
-            onClick={() => {
-              handleAddToCart(item);
-            }}
-          >
-            <h6 className="m-0 btn-text">Add to cart</h6>
-          </button> */}
         </div>
       </div>
     </div>
