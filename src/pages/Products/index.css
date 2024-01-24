@@ -1,6 +1,7 @@
 .products-root {
-    height: 100%;
+    /* height: auto; */
     padding: 0 50px;
+    min-height: 500px;
 }
 
 .sort-filter {
@@ -15,7 +16,7 @@
 
 .products-section {
     overflow: scroll;
-    height: 66%;
+    max-height: 522px;
     row-gap: 19px;
     overflow-x: hidden;
 }

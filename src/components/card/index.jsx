@@ -9,7 +9,6 @@ function CardComponent({ item }) {
   const dispatch = useDispatch();
   const { addedToCart } = useSelector((state) => state.products);
   const [count, setCount] = useState(null);
-  console.log(addedToCart, "addedToCart");
   const handleCheckIfAdded = (obj, type = "add") => {
     if (!obj) return 0;
     let addedSales = addedToCart?.filter((row) => row?.sale?.id === obj?.id);
@@ -17,7 +16,6 @@ function CardComponent({ item }) {
       setCount(1);
       return 1;
     }
-    console.log(addedSales, "addedSales");
     setCount(
       type === "add" ? addedSales[0]?.count + 1 : addedSales[0]?.count - 1
     );
@@ -46,13 +44,20 @@ function CardComponent({ item }) {
       key={item?.id}
     >
       <Carousel
-        width="11rem"
+        width="10rem"
         height="10rem"
         images={item?.images?.length ? item.images : []}
         id={item.id}
       />
       <div className="card-body">
-        <h5 className="card-title title font-bold">Product1</h5>
+        <h5
+          className="card-title title font-bold"
+          data-bs-toggle="tooltip"
+          data-bs-placement="right"
+          title={item?.title ?? ""}
+        >
+          {item?.title ? item?.title?.slice(0, 15) + "..." : ""}
+        </h5>
         <div className="d-flex flex-row justify-content-between">
           <div className="d-flex flex-column">
             <h6 className="card-title gray-text">Category</h6>

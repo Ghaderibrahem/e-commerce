@@ -5,6 +5,7 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Products from "./pages/Products";
 import Header from "./components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "font-awesome/css/font-awesome.min.css";
 import Cart from "./pages/Cart";
 import Footer from "./components/Footer";
 function App() {

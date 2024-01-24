@@ -1,8 +1,9 @@
 const Carousel = ({ width = "100%", height, images = [], id }) => {
   const checkIfJson = (value) => {
     if (value.startsWith("[")) {
-      console.log(JSON.parse(value)[0], "JSON.parse(value)[0]");
-      return JSON.parse(value)[0] ?? "";
+      if (!value.endsWith("]")) return "";
+      let parsRes = JSON.parse(value) ?? "";
+      return Array.isArray(parsRes) && parsRes?.length ? parsRes[0] : "";
     }
     return value;
   };
@@ -45,6 +46,7 @@ const Carousel = ({ width = "100%", height, images = [], id }) => {
             className={
               index === 0 ? "carousel-item active h-100" : "carousel-item h-100"
             }
+            key={index}
           >
             <img
               src={checkIfJson(element)}
