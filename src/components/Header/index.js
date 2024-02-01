@@ -11,7 +11,7 @@ function Header() {
         <div className="col-12 col-md-6 col-lg-8">
           <img src={silkhausLogo} className="ms-5" alt="silkhausLogo" />
         </div>
-        <div className="col-12 col-md-6 col-lg-4 d-flex">
+        <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-end p-inline-end">
           <Link
             to={{ pathname: "products", search: "?sort=asc&page=1&limit=10" }}
             className={`text-decoration-none ${

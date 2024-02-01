@@ -18,3 +18,7 @@
     height: 32px;
     margin-left: 18px;
 }
+
+.p-inline-end {
+    padding-inline-end: 60px;
+}

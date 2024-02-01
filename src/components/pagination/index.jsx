@@ -57,52 +57,6 @@ const Pagination = ({
             </button>
           ))}
         </div>
-        {/* <div className="d-flex">
-        <button
-          className={`d-flex justify-content-center align-items-center  border-0  p-3 w-25 m-2 rounded-3`}
-          style={{
-            width: "3rem",
-            height: "3rem",
-            backgroundColor: page == 1 ? "#EDE1FB" : "white",
-          }}
-          onClick={() => handlePageChange(1)}
-        >
-          1
-        </button>
-        <button
-          className={`d-flex justify-content-center align-items-center  border-0  p-3 w-25 m-2 rounded-3`}
-          style={{
-            width: "3rem",
-            height: "3rem",
-            backgroundColor: page == 2 ? "#EDE1FB" : "white",
-          }}
-          onClick={() => handlePageChange(2)}
-        >
-          2
-        </button>
-        <button
-          className={`d-flex justify-content-center align-items-center  border-0  p-3 w-25 m-2 rounded-3`}
-          style={{
-            width: "3rem",
-            height: "3rem",
-            backgroundColor: page == 3 ? "#EDE1FB" : "white",
-          }}
-          onClick={() => handlePageChange(3)}
-        >
-          3
-        </button>
-        <button
-          className={`d-flex justify-content-center align-items-center  border-0  p-3 w-25 m-2 rounded-3`}
-          style={{
-            width: "3rem",
-            height: "3rem",
-            backgroundColor: page == 4 ? "#EDE1FB" : "white",
-          }}
-          onClick={() => handlePageChange(4)}
-        >
-          4
-        </button>
-      </div> */}
         <button
           className="d-flex justify-content-center align-items-center  border-0 bg-body p-3  m-2 rounded-3"
           style={{ width: "7rem", height: "3rem" }}
